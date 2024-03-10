@@ -1,0 +1,119 @@
+#characterDetails {
+  width: 100%;
+}
+
+#characterDetails .details {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  gap: 2rem;
+}
+
+#characterDetails .details h1 {
+  font-size: 2rem;
+  line-height: 2rem;
+  margin: 0 0 2rem 0;
+}
+
+#characterDetails .details {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  margin: 0 0 1rem 0;
+}
+
+#characterDetails .details strong {
+  color: #111827;
+}
+
+#characterDetails .details .data {
+  width: 100%;
+  padding: 1rem 2rem 1rem 0;
+}
+
+#characterDetails .details .row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+#characterDetails .details .row > div {
+  width: 100%;
+}
+
+#characterDetails .details .flex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+#characterDetails .details .flex .icon {
+  flex: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  stroke: #9ca3af;
+}
+
+#characterDetails .details .flex p {
+  flex: auto;
+  margin: 0;
+}
+
+#characterDetails .details .episodesList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+}
+
+#characterDetails .details .episode {
+  font-size: 1rem;
+  line-height: 1.6rem;
+  background: #111827;
+  color: white;
+  border-radius: 100%;
+  width: 1.6rem;
+  text-align: center;
+}
+
+#characterDetails .content-favorite {
+  width: 2.5rem;
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1200px) {
+  #characterDetails .details {
+    flex-direction: column;
+  }
+
+  #characterDetails .details img {
+    border-radius: 100%;
+    margin: 2rem auto 0 auto;
+  }
+
+  #characterDetails .details .data {
+    padding: 0rem 2rem 2rem 2rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #characterDetails .details .row {
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+}

@@ -1,0 +1,16 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+  gap: 2rem;
+}
+
+.pagination .item {
+  width: 2rem;
+  height: 2rem;
+}
+
+.pagination .item.disabled {
+  opacity: 0.3;
+}

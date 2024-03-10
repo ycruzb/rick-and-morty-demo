@@ -1,0 +1,10 @@
+.filter {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  item-content: center;
+}
+
+.filter label {
+  margin: 0px;
+}

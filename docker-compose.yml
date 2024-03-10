@@ -1,0 +1,75 @@
+version: '3.8'
+services:
+  redis:
+    image: redis:7.2.4
+    restart: always
+    volumes:
+      - redis:/var/lib/redis/data
+    ports:
+      - '6379:6379'
+  postgres:
+    depends_on:
+      - redis
+    image: postgres:10.3
+    restart: always
+    environment:
+      - POSTGRES_USER=localUser
+      - POSTGRES_PASSWORD=xer3dUWgkz
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+  backend:
+    depends_on:
+      - postgres
+      - redis
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      - PORT=3000
+      - RANDOM_SEED=alamYTVubCZefTMsC1U6NNq5pqP067ev
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_EXPIRATION=604800
+      - DATABASE_URL=postgresql://localUser:xer3dUWgkz@postgres:5432/demodb?schema=public
+      - DATA_API_URL=https://rickandmortyapi.com/api/character
+      - FRONTEND_BASE_URL=http://localhost:5173
+    ports:
+      - 3000:3000
+    develop:
+      watch:
+        - path: ./backend/package.json
+          action: rebuild
+        - path: ./backend/package-lock.json
+          action: rebuild
+        - path: ./backend
+          target: /app
+          action: sync
+  frontend:
+    depends_on:
+      - postgres
+      - redis
+      - backend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      - VITE_BACKEND_API_URL=http://localhost:3000
+      - VITE_DATA_API_URL=https://rickandmortyapi.com/api/character
+    ports:
+      - 5173:5173
+    develop:
+      watch:
+        - path: ./frontend/package.json
+          action: rebuild
+        - path: ./frontend/package-lock.json
+          action: rebuild
+        - path: ./frontend
+          target: /app
+          action: sync
+volumes:
+  redis:
+  postgres:
