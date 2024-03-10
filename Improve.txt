@@ -1,4 +1,0 @@
-1- add email verification in the registration process of the user
-2- add a logging system for register all actions and errors
-3- add the feature for change the password
-4- sync the backend and frontend data, use tRPC
