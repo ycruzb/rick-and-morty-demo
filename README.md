@@ -131,7 +131,7 @@ npx playwright test
 
 Some improvements that could be implemented:
 
-1- add email verification in the registration process of the user
-2- add a logging system for register all actions and errors (new relic, etc.)
-3- add the feature that allows the user change it's password
-4- sync the backend and frontend data (probably using tRPC)
+- add email verification in the registration process of the user
+- add a logging system for register all actions and errors (new relic, etc.)
+- add the feature that allows the user change it's password
+- sync the backend and frontend data (probably using tRPC)
