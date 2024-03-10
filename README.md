@@ -22,7 +22,7 @@ docker-compose up
 
 and open the following url in the browser:
 
-[MIT](http://localhost:5173)
+[http://localhost:5173](http://localhost:5173)
 
 ## Some considerations
 
