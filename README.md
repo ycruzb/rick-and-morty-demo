@@ -27,7 +27,7 @@ and open the following url in the browser when the scripts are ready:
 ## Some considerations
 
 - regarding performance: it was implemented a cache using Redis in the backend and also in the frontend using Tanstack query, the result is a super fast website
-- regarding the case of having issues wih the Rick and Morty api: the cache implemented in the backend using Redis covers this scenario because a one week time is used as the time expiration for the values so in theory as the app is being used, the fewer requests will be made to the api (important: it's understood that make a whole copy of the data from the api is not a possible solution so because of that the cache was considered a proper solution)
+- regarding the case of having issues wih the Rick and Morty api: the cache implemented in the backend using Redis covers this scenario because a one week time is used as the expiration time for the values so in theory as the app is being used, the fewer requests will be made to the api (important: it's understood that make a whole copy of the data from the api is not a possible solution so because of that the cache was considered a proper solution)
 
 ## Backend solution
 
