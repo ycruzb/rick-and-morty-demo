@@ -20,7 +20,7 @@ The easier way to run the entire project is using docker compose so you have to 
 docker-compose up
 ```
 
-and open the following url in the browser:
+and open the following url in the browser when the scripts are ready:
 
 [http://localhost:5173](http://localhost:5173)
 
