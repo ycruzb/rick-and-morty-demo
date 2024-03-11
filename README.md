@@ -103,6 +103,8 @@ more tests could be implemented in the future.
 
 ### How to run the tests
 
+Note: See the comment on line 15 in the file tests/tests/frontend.spec.ts. You have to specify there an already registered email with the valid password.
+
 Run the following commands inside the tests folder:
 
 - installing depedencies:

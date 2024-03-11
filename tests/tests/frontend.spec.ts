@@ -12,6 +12,7 @@ const appTest = test.extend({
     await use(page);
   },
   frontendLoggedIn: async ({ frontendLogin }, use) => {
+    // TODO: use an already registered email and the valid password here
     await frontendLogin.getByRole('textbox', { name: 'email' }).fill('ycruzb@gmail.com');
     await frontendLogin.getByRole('textbox', { name: 'password' }).fill('123456');
     await frontendLogin.getByRole('button', { name: 'Login' }).click();
