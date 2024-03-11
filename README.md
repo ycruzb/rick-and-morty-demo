@@ -129,6 +129,12 @@ npx playwright test --ui
 npx playwright test
 ```
 
+## What was additionally added/included
+
+- Pagination in the characters list including when there are filters applied
+- Favorites page, a page for listing the characters marked as favorite
+- e2e testing to check if the main features of the app are working properly from the end user perspective (the most confidence approach)
+
 ## Improvements to do
 
 Some improvements that could be implemented:
