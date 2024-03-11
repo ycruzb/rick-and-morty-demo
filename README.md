@@ -133,7 +133,8 @@ npx playwright test
 
 Some improvements that could be implemented:
 
+- add sorting and searching in the list of characters
 - add email verification in the registration process of the user
-- add a logging system for register all actions and errors (new relic, etc.)
 - add the feature that allows the user change it's password
+- add a logging system for register all actions and errors (new relic, etc.)
 - sync the backend and frontend data (probably using tRPC)
