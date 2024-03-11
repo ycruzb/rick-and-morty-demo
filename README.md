@@ -129,7 +129,7 @@ npx playwright test --ui
 npx playwright test
 ```
 
-## Improvements
+## Improvements to do
 
 Some improvements that could be implemented:
 
