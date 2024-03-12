@@ -134,6 +134,7 @@ npx playwright test
 - Pagination in the characters list including when there are filters applied
 - Favorites page, a page for listing the characters marked as favorite
 - e2e testing to check if the main features of the app are working properly from the end user perspective (the most confidence approach)
+- Containerized solutions (for the entire project running it with just one command and also for each part, backend and frontend)
 
 ## Improvements to do
 
