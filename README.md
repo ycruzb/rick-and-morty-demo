@@ -14,13 +14,19 @@ There is a docker-compose.yml in the root folder that provides the ability to ru
 
 ## How to run the entire project (Redis, PostgreSQL, backend and frontend)
 
-The easier way to run the entire project is using docker compose so you have to install Docker Desktop and then run the command:
+The easier way to run the entire project is using docker compose so you have to install Docker Desktop and run the project. 
 
 ```bash
 docker-compose up
 ```
 
-and open the following url in the browser when the scripts are ready:
+With the project running the first time you have to generate the db structure. Create a .env file in the root of the backend folder with the same variables passed to the backend in the docker-compose.yml but changing the host of the db connection string to localhost, then run the following command inside the backend folder to generate the db structure:
+
+```bash
+npx prisma db push
+```
+
+and finally open the following url in the browser when the scripts are ready:
 
 [http://localhost:5173](http://localhost:5173)
 
@@ -39,21 +45,31 @@ The solution was developed in Node.js using Express and Typescript. It uses a Po
 
 Create a .env file in the root with all the required variables (details on the environment data passed to the backend in the docker-compose.yml file) and run the following commands inside the backend folder:
 
-For development:
+Installing depedencies:
 
 ```bash
 npm i
 ```
+
+Generate the db structure:
+
+The first time you have to generate the structure for the db
+
+IMPORTANT: set properly the host in the .env file for the database in the connection string in order to generate the structure for the db properly
+
+run the following command:
+
+```bash
+npx prisma db push
+```
+
+For running the project in development mode:
 
 ```bash
 npm run dev
 ```
 
-For production:
-
-```bash
-npm i
-```
+For running the project in production mode:
 
 ```bash
 npm run build
