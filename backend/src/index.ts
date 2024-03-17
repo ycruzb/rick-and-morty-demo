@@ -1,13 +1,13 @@
-import express, { Express } from "express";
-import dotenv from "dotenv";
-import cors from "cors";
+import express, { Express } from 'express';
+import dotenv from 'dotenv';
+import cors from 'cors';
 
-import versionRoute from "./routes/version";
-import healthRoute from "./routes/health";
-import registerRoute from "./routes/register";
-import loginRoute from "./routes/login";
-import charactersRoute from "./routes/characters";
-import favoritesRoute from "./routes/favorites";
+import versionRoute from './routes/version';
+import healthRoute from './routes/health';
+import registerRoute from './routes/register';
+import loginRoute from './routes/login';
+import charactersRoute from './routes/characters';
+import favoritesRoute from './routes/favorites';
 
 dotenv.config();
 
@@ -23,16 +23,16 @@ app.use(cors(corsOptions));
 
 app.use(express.json());
 
-app.use("/", versionRoute);
-app.use("/health", healthRoute);
-app.use("/register", registerRoute);
-app.use("/login", loginRoute);
-app.use("/characters", charactersRoute);
-app.use("/favorites", favoritesRoute);
+app.use('/', versionRoute);
+app.use('/health', healthRoute);
+app.use('/register', registerRoute);
+app.use('/login', loginRoute);
+app.use('/characters', charactersRoute);
+app.use('/favorites', favoritesRoute);
 
 app.use((_req, res) => {
-  res.status(404).json({ message: "Not found" })
-})
+  res.status(404).json({ message: 'Not found' });
+});
 
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);

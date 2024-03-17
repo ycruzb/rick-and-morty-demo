@@ -8,7 +8,7 @@ export default asyncHandler(async (req: Request, res: Response) => {
   const { characterId, userId } = req.body;
 
   if (!characterId || !userId) {
-    res.status(400).json({message: 'Some required data is missing.'});
+    res.status(400).json({ message: 'Some required data is missing.' });
     return;
   }
 
@@ -21,7 +21,9 @@ export default asyncHandler(async (req: Request, res: Response) => {
     });
 
     if (favorite) {
-      res.status(200).json({message: 'The character was already added as favorite.'});
+      res
+        .status(200)
+        .json({ message: 'The character was already added as favorite.' });
       return;
     }
 
@@ -32,12 +34,14 @@ export default asyncHandler(async (req: Request, res: Response) => {
           connect: {
             id: userId,
           },
-        }
+        },
       },
     });
-    
-    res.status(200).json({message: 'Character added as favorite.'});
+
+    res.status(200).json({ message: 'Character added as favorite.' });
   } catch (error) {
-    res.status(500).json({ message: 'An error has occurred. Please try again.' });
+    res
+      .status(500)
+      .json({ message: 'An error has occurred. Please try again.' });
   }
 });

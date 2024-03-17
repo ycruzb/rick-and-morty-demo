@@ -18,4 +18,4 @@ export type Character = {
   url: string;
   created: string;
   isFavorite?: boolean;
-}
+};
