@@ -2,7 +2,7 @@ import asyncHandler from 'express-async-handler';
 import { Request, Response } from 'express';
 import { PrismaClient } from '@prisma/client';
 import { type Character } from '../../types/character';
-import redisClient from '../libs/redisClient';
+import redisClient from '../../libs/redisClient';
 
 const prisma = new PrismaClient();
 
