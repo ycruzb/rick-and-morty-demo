@@ -13,7 +13,6 @@ export default asyncHandler(async (req: Request, res: Response) => {
   }
 
   try {
-    // if the favorite does not exist then return else remove the connection with the user
     const favorite = await prisma.favorite.findFirst({
       where: {
         characterId,
