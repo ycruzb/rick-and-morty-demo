@@ -39,6 +39,12 @@ export default asyncHandler(async (req: Request, res: Response) => {
     const response = await fetch(`${process.env.DATA_API_URL}/${idsParam}`);
 
     if (!response.ok) {
+      // if response is 404, it means that the user only has one favorite and doesn't exist right now in the API, so we return an empty array
+      if (response.status === 404) {
+        res.status(200).json([]);
+        return;
+      }
+
       res
         .status(500)
         .json({ message: 'An error has occurred. Please try again.' });
