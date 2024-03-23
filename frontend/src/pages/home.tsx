@@ -12,6 +12,19 @@ import { useEffect } from "react";
 
 const cookies = new Cookies();
 
+const availableFilterFields = [
+  {
+    field: 'status',
+    label: 'Status',
+    values: ['all', 'alive', 'dead', 'unknown']
+  },
+  {
+    field: 'gender',
+    label: 'Gender',
+    values: ['all', 'female', 'male', 'genderless', 'unknown']
+  }
+]
+
 export default function HomePage() {
   const { user, logoutUser } = useUserStore()
   const navigate = useNavigate();
@@ -24,10 +37,10 @@ export default function HomePage() {
     queryKey: [`charactersList${page}${status}${gender}`],
     queryFn: async () => {
       const response = await fetch(`${import.meta.env.VITE_BACKEND_API_URL}/characters/?page=${page}${status === 'all' ? '' : `&status=${status}`}${gender === 'all' ? '' : `&gender=${gender}`}`, {
-        headers: {Authorization: `Bearer ${user?.token || ''}`}
+        headers: { Authorization: `Bearer ${user?.token || ''}` }
       });
       if (response.ok) {
-        const responseData =  await response.json()
+        const responseData = await response.json()
         return (responseData as dataApiCharactersListResponse);
       }
       if (response.status === 401) {
@@ -71,18 +84,17 @@ export default function HomePage() {
     lastLink = `/?page=${data.info.pages}${status ? `&status=${status}` : ''}${gender ? `&gender=${gender}` : ''}`;
   }
 
-  const availableFilterFields = ['status', 'gender'];
-
   return <PageLayout>
     <h2 className="center">Meet the crew</h2>
     <FilterList>
-      <Filter field="status" label="Status" values={['all', 'alive', 'dead', 'unknown']} availableFilterFields={availableFilterFields} />
-      <Filter field="gender" label="Gender" values={['all', 'female', 'male', 'genderless', 'unknown']} availableFilterFields={availableFilterFields} />
+      {availableFilterFields.map(filter => (
+        <Filter key={filter.field} field={filter.field} label={filter.label} values={filter.values} availableFilterFields={availableFilterFields.map(f => f.field)} />
+      ))}
       {((status && status !== 'all') || (gender && gender !== 'all')) && (
         <Link to="/">Clear</Link>
-      ) }
+      )}
     </FilterList>
     <CharactersList characters={data.results} />
-    <Pagination prev={prevLink} next={nextLink} first={firstLink} last={lastLink}  />
+    <Pagination prev={prevLink} next={nextLink} first={firstLink} last={lastLink} />
   </PageLayout>
 }
