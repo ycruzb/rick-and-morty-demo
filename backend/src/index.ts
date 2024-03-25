@@ -8,6 +8,7 @@ import registerRoute from './routes/register';
 import loginRoute from './routes/login';
 import charactersRoute from './routes/characters';
 import favoritesRoute from './routes/favorites';
+import { authMiddleware } from './middlewares/auth';
 
 dotenv.config();
 
@@ -27,8 +28,8 @@ app.use('/', versionRoute);
 app.use('/health', healthRoute);
 app.use('/register', registerRoute);
 app.use('/login', loginRoute);
-app.use('/characters', charactersRoute);
-app.use('/favorites', favoritesRoute);
+app.use('/characters', authMiddleware, charactersRoute);
+app.use('/favorites', authMiddleware, favoritesRoute);
 
 app.use((_req, res) => {
   res.status(404).json({ message: 'Not found' });

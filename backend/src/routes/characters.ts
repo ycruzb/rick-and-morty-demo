@@ -1,11 +1,10 @@
 import express from 'express';
 import getCharactersController from '../controllers/characters/getCharactersController';
 import getCharacterController from '../controllers/characters/getCharacterController';
-import { authMiddleware } from '../middlewares/auth';
 
 const router = express.Router();
 
-router.get('/', authMiddleware, getCharactersController);
-router.get('/:characterId', authMiddleware, getCharacterController);
+router.get('/', getCharactersController);
+router.get('/:characterId', getCharacterController);
 
 export default router;
